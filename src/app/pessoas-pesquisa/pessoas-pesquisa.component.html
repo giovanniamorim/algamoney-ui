@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Pessoas</h1>
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <span class="ui-float-label">
+          <input id="float-input" type="text" pInputText />
+          <label for="float-input">Nome</label>
+        </span>
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar"></button>
+      </div>
+
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <p-dataTable [value]="pessoas" [paginator]="true" [rows]="2"  [rowsPerPageOptions]="[10,20,30]" [responsive]="true" >
+          <p-column field="nome" header="Nome"></p-column>
+          <p-column field="cidade" header="Cidade"></p-column>
+          <p-column field="estado" header="Estado"></p-column>
+
+          <p-column field="status" header="Status" styleClass="coluna-status">
+            <ng-template let-pessoa="rowData" pTemplate="body">
+              <span [ngStyle]="{ color: pessoa.status === 'ATIVO' ? 'green' : 'orange' }">{{pessoa.status}}</span>
+
+            </ng-template>
+          </p-column>
+          <p-column styleClass="coluna-acoes">
+            <ng-template pTemplate="body">
+              <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+              <a pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></a>
+            </ng-template>
+          </p-column>
+
+        </p-dataTable>
+      </div>
+      <div class="ui-g-12">
+        <a pButton label="Nova pessoa"></a>
+      </div>
+    </div>
+  </div>
