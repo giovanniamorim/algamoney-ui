@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@angular/core';
 import { Renderer3 } from '@angular/core/src/render3/renderer';
 
 @Directive({
@@ -6,22 +6,15 @@ import { Renderer3 } from '@angular/core/src/render3/renderer';
 })
 export class CampoColoridoDirective {
 
-  constructor(
-    private elementRef: ElementRef;
-    private renderer: Renderer2
-  ) {}
+  @HostBinding('style.backgroundColor') corDeFundo: string;
 
   @HostListener('focus')
   aoGanharFoco() {
-    console.log(this.elementRef.nativeElement);
-    this.renderer.setStyle(this.elementRef.nativeElement,
-    'background-color', 'yellow');
+    this.corDeFundo = 'yellow';
   }
   @HostListener('blur')
   aoPerderFoco() {
-    console.log(this.elementRef.nativeElement);
-    this.renderer.setStyle(this.elementRef.nativeElement,
-    'background-color', 'transparent');
+    this.corDeFundo = 'transparent';
   }
 
 }
