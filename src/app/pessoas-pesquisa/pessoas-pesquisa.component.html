@@ -5,7 +5,7 @@
       </div>
       <div class="ui-g-12 ui-fluid">
         <span class="ui-float-label">
-          <input id="float-input" type="text" pInputText />
+          <input id="float-input" type="text" pInputText appCampoColorido />
           <label for="float-input">Nome</label>
         </span>
       </div>
@@ -25,6 +25,7 @@
 
           <p-column field="status" header="Status" styleClass="coluna-status">
             <ng-template let-pessoa="rowData" pTemplate="body">
+
               <span [ngStyle]="{ color: pessoa.status === 'ATIVO' ? 'green' : 'orange' }">{{pessoa.status}}</span>
 
             </ng-template>
