@@ -27,7 +27,7 @@
 
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-dataTable [value]="lancamentos">
+      <p-dataTable [value]="lancamentos" [paginator]="true" [rows]="2"  [rowsPerPageOptions]="[10,20,30]">
         <p-column field="pessoa" header="Pessoa"></p-column>
         <p-column field="descricao" header="Descrição"></p-column>
         <p-column field="dataVencimento" header="Vencimento"></p-column>
@@ -44,6 +44,7 @@
             <a pButton icon="fa-trash"></a>
           </ng-template>
         </p-column>
+
       </p-dataTable>
     </div>
     <div class="ui-g-12">
