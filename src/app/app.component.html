@@ -24,4 +24,16 @@
     </div>
 
   </div>
+
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <p-dataTable [value]="lancamentos">
+        <p-column field="pessoa" header="Pessoa"></p-column>
+        <p-column field="descricao" header="Descrição"></p-column>
+        <p-column field="dataVencimento" header="Vencimento"></p-column>
+        <p-column field="dataPagamento" header="Pagamento" styleClass="coluna-data"></p-column>
+        <p-column field="valor" header="Valor" styleClass="coluna-valor"></p-column>
+      </p-dataTable>
+    </div>
+  </div>
 </div>

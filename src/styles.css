@@ -12,3 +12,13 @@ body {
   }
 }
 
+.coluna-valor {
+  width: 120px;
+  text-align: right;
+}
+
+.coluna-data {
+  width: 120px;
+  text-align: center;
+}
+
