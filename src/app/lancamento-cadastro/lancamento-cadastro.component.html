@@ -4,13 +4,16 @@
       <div class="ui-g-12">
         <h1>Novo Lançamento</h1>
       </div>
+      <div class="ui-g-12">
+        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+      </div>
       <div class="ui-g-12 ui-fluid">
         <div class="ui-g-6 ui-md-3 ui-sm-12">
-            <label>Pagamento</label>
+            <label>Vencimento</label>
             <p-calendar [(ngModel)]="dataPagamento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
         </div>
         <div class="ui-g-6 ui-md-3 ui-sm-12">
-            <label>Vencimento</label>
+            <label>{{ tipo.value ==='RECEITA' ? 'Recebimento' : 'Pagamento' }}</label>
             <p-calendar [(ngModel)]="dataVencimento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
         </div>
       </div>
@@ -26,13 +29,13 @@
           </div>
       </div>
       <div class="ui-g-12 ui-fluid">
-          <div class="ui-g-8 ui-sm-12">
+          <div class="ui-g-6 ui-sm-12">
             <label>Categoria</label>
-            <input pInputText type="text"/>
+            <p-dropdown [options]="categorias"  [(ngModel)]="selecionarCategoria" placeholder="Selecionar Categoria" [autoWidth]="false" ></p-dropdown>
           </div>
-          <div class="ui-g-4 ui-sm-12">
-            <label>Pessoa</label>
-            <input pInputText type="text"/>
+          <div class="ui-g-6 ui-sm-12">
+              <label>Pessoa</label>
+              <p-dropdown [options]="pessoas"  [(ngModel)]="selecionarPessoas" placeholder="Selecionar Pessoa" [autoWidth]="false" [filter]="true" ></p-dropdown>
           </div>
       </div>
       <div class="ui-g-12 ui-fluid">
@@ -42,9 +45,9 @@
       </div>
       </div>
         <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar" icon="fa-save" iconPos="left"></button>
-        <button pButton type="button" label="Novo" ui-button-info icon="fa fa-plus-square-o" iconPos="left"></button>
-        <a href="#">Voltar para pesquisa</a>
+        <button class="ui-sm-12" pButton type="submit" label="Salvar" icon="fa-save" iconPos="left"></button>
+        <button class="ui-sm-12" pButton type="button" label="Novo" ui-button-info icon="fa fa-plus-square-o" iconPos="left"></button>
+        <a class="ui-sm-12" href="#">Voltar para pesquisa</a>
      </div>
 
     </div>
