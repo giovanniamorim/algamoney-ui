@@ -1,0 +1,52 @@
+<div class="container">
+  <form>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Novo Lançamento</h1>
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <div class="ui-g-6 ui-md-3 ui-sm-12">
+            <label>Pagamento</label>
+            <p-calendar [(ngModel)]="dataPagamento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+        </div>
+        <div class="ui-g-6 ui-md-3 ui-sm-12">
+            <label>Vencimento</label>
+            <p-calendar [(ngModel)]="dataVencimento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+        </div>
+      </div>
+
+      <div class="ui-g-12 ui-fluid">
+          <div class="ui-g-9 ui-sm-12 ">
+            <label>Descrição</label>
+            <input pInputText type="text"/>
+          </div>
+          <div class="ui-g-3 ui-sm-12">
+            <label>Valor</label>
+            <input pInputText type="text"/>
+          </div>
+      </div>
+      <div class="ui-g-12 ui-fluid">
+          <div class="ui-g-8 ui-sm-12">
+            <label>Categoria</label>
+            <input pInputText type="text"/>
+          </div>
+          <div class="ui-g-4 ui-sm-12">
+            <label>Pessoa</label>
+            <input pInputText type="text"/>
+          </div>
+      </div>
+      <div class="ui-g-12 ui-fluid">
+        <div class="ui-g-12">
+          <label>Descrição</label>
+          <textarea type="text" pInputTextarea></textarea>
+      </div>
+      </div>
+        <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" icon="fa-save" iconPos="left"></button>
+        <button pButton type="button" label="Novo" ui-button-info icon="fa fa-plus-square-o" iconPos="left"></button>
+        <a href="#">Voltar para pesquisa</a>
+     </div>
+
+    </div>
+  </form>
+</div>

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding, Input } from '@angular/core';
 import { Renderer3 } from '@angular/core/src/render3/renderer';
 
 @Directive({
@@ -6,11 +6,13 @@ import { Renderer3 } from '@angular/core/src/render3/renderer';
 })
 export class CampoColoridoDirective {
 
+  @Input() cor = 'gray';
+
   @HostBinding('style.backgroundColor') corDeFundo: string;
 
   @HostListener('focus')
   aoGanharFoco() {
-    this.corDeFundo = 'yellow';
+    this.corDeFundo = this.cor;
   }
   @HostListener('blur')
   aoPerderFoco() {
