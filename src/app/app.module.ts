@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { ButtonModule } from 'primeng/components/button/button';
@@ -20,6 +21,7 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 import { CampoColoridoDirective } from './campo-colorido.directive';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animations/src/providers';
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animatio
     PessoasPesquisaComponent,
     CampoColoridoDirective,
     LancamentoCadastroComponent,
+    PessoaCadastroComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animatio
     CalendarModule,
     BrowserAnimationsModule,
     SelectButtonModule,
-    DropdownModule
+    DropdownModule,
+    CurrencyMaskModule
   ],
   providers: [
 
