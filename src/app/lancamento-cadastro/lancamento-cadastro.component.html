@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form autocomplete="off">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Novo Lançamento</h1>
@@ -10,44 +10,47 @@
       <div class="ui-g-12 ui-fluid">
         <div class="ui-g-6 ui-md-3 ui-sm-12">
             <label>Vencimento</label>
-            <p-calendar [(ngModel)]="dataPagamento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+            <p-calendar [(ngModel)]="dataPagamento" name="dataPagamento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
         </div>
         <div class="ui-g-6 ui-md-3 ui-sm-12">
             <label>{{ tipo.value ==='RECEITA' ? 'Recebimento' : 'Pagamento' }}</label>
-            <p-calendar [(ngModel)]="dataVencimento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
+            <p-calendar [(ngModel)]="dataVencimento" name="dataVencimento" showButtonBar="true" [showIcon]="true" dateFormat="dd/mm/yy"></p-calendar>
         </div>
       </div>
 
       <div class="ui-g-12 ui-fluid">
           <div class="ui-g-9 ui-sm-12 ">
             <label>Descrição</label>
-            <input pInputText type="text"/>
+            <input pInputText type="text" name="descricao" ngModel #descricao="ngModel" required minlength="5"/>
+            <app-message [control]="descricao" error="required" text="Informe uma descrição" ></app-message>
+            <app-message [control]="descricao" error="minlength" text="Digite ao menos {{descricao.errors?.minlength?.requiredLength}} caracteres. Você digitou apenas {{descricao.errors?.minlength?.actualLength}}" ></app-message>
+
           </div>
           <div class="ui-g-3 ui-sm-12">
             <label>Valor</label>
-            <input pInputText currencyMask [(ngModel)]="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>
+            <input pInputText currencyMask name="valor" [(ngModel)]="valor" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" ngModel/>
           </div>
       </div>
       <div class="ui-g-12 ui-fluid">
           <div class="ui-g-6 ui-sm-12">
             <label>Categoria</label>
-            <p-dropdown [options]="categorias"  [(ngModel)]="selecionarCategoria" placeholder="Selecionar Categoria" [autoWidth]="false" ></p-dropdown>
+            <p-dropdown [options]="categorias"  [(ngModel)]="selecionarCategoria" name="selecionarCategoria" placeholder="Selecionar Categoria" [autoWidth]="false" ></p-dropdown>
           </div>
           <div class="ui-g-6 ui-sm-12">
               <label>Pessoa</label>
-              <p-dropdown [options]="pessoas"  [(ngModel)]="selecionarPessoas" placeholder="Selecionar Pessoa" [autoWidth]="false" [filter]="true" ></p-dropdown>
+              <p-dropdown [options]="pessoas"  [(ngModel)]="selecionarPessoas" name="selecionarPessoas" placeholder="Selecionar Pessoa" [autoWidth]="false" [filter]="true" ></p-dropdown>
           </div>
       </div>
       <div class="ui-g-12 ui-fluid">
         <div class="ui-g-12">
-          <label>Descrição</label>
+          <label>Observações</label>
           <textarea type="text" pInputTextarea></textarea>
       </div>
       </div>
         <div class="ui-g-12">
-        <button class="ui-sm-12" pButton type="submit" label="Salvar" icon="fa-save" iconPos="left"></button>
-        <button class="ui-sm-12" pButton type="button" label="Novo" ui-button-info icon="fa fa-plus-square-o" iconPos="left"></button>
-        <a class="ui-sm-12" href="#">Voltar para pesquisa</a>
+            <p-button type="submit" label="Salvar" styleClass="ui-button-success" icon="fa fa-save"></p-button>
+            <p-button type="submit" label="Novo" styleClass="ui-button-info" icon="fa fa-plus-square-o" iconPos="left"></p-button>
+            <p-button type="submit" label="Pesquisa" styleClass="ui-button-secondary" icon="fa fa-list" iconPos="left"></p-button>
      </div>
 
     </div>
