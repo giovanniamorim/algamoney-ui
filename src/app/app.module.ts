@@ -26,6 +26,7 @@ import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animatio
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
+import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 
 
 
@@ -39,6 +40,7 @@ import { FormsModule } from '@angular/forms';
     LancamentoCadastroComponent,
     PessoaCadastroComponent,
     MessageComponent,
+    LancamentosGridComponent,
   ],
   imports: [
     BrowserModule,

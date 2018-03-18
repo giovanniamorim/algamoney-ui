@@ -1,0 +1,34 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+      <p-dataTable [value]="lancamentos" [paginator]="true" [rows]="2"  [rowsPerPageOptions]="[10,20,30]" [responsive]="true" >
+        <p-column field="pessoa" header="Pessoa"></p-column>
+        <p-column field="descricao" header="Descrição"></p-column>
+        <p-column header="Vencimento" styleClass="coluna-data">
+          <ng-template let-lancamento="rowData" pTemplate="body">
+            <span>{{ lancamento.dataVencimento | date:'dd/MM/yyyy' }}</span>
+          </ng-template>
+        </p-column>
+        <p-column header="Pagamento" styleClass="coluna-data">
+          <ng-template let-lancamento="rowData" pTemplate="Body">
+            <span>{{ lancamento.dataPagamento | date:'dd/MM/yyyy'}} </span>
+          </ng-template>
+        </p-column>
+        <p-column header="Valor" styleClass="coluna-valor">
+          <ng-template let-lancamento="rowData" pTemplate="body">
+            <span [ngStyle]="{ color: lancamento.tipo === 'DESPESA' ? 'red' : 'blue' }">{{lancamento.valor | currency:'BRL': 'simbol':'1.2-2'}}</span>
+
+          </ng-template>
+        </p-column>
+        <p-column styleClass="coluna-acoes">
+          <ng-template pTemplate="body">
+            <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+            <a pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="top"></a>
+          </ng-template>
+        </p-column>
+
+      </p-dataTable>
+    </div>
+    <div class="ui-g-12">
+      <a pButton label="Novo Lancamento"></a>
+    </div>
+  </div>

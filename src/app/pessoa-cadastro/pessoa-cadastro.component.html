@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form autocomplete="off" #pessoaForm="ngForm" (ngSubmit)="salvar(pessoaForm)">
       <div class="ui-g-12">
         <div class="ui-g-12 ui-fuild">
            <h2>Nova Pessoa</h2>
@@ -7,17 +7,20 @@
         <div class="ui-g-12 ui-fluid">
           <div class="ui-g-12">
             <label>Nome</label>
-            <input pInputText type="text">
+            <input pInputText type="text" name="nome" ngModel #nome="ngModel" required>
+            <app-message [control]="nome" error="required" text="O nome é obrigatório" ></app-message>
         </div>
         </div>
         <div class="ui-g-12 ui-fluid">
           <div class="ui-g-8  ui-sm-12">
             <label>Logradouro</label>
-            <input type="text"pInputText>
+            <input type="text"pInputText name="logradouro" ngModel #logradouro="ngModel" required>
+            <app-message [control]="logradouro" error="required" text="o logradouro é obrigatório" ></app-message>
           </div>
           <div class="ui-g-4 ui-sm-12 ui-fluid">
             <label>Número</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText name="numero" ngModel #numero="ngModel" required>
+            <app-message [control]="numero" error="required" text="O número é obrigatório. Caso não exista insira S/N"></app-message>
           </div>
         </div>
         <div class="ui-g-12 ui-fluid">
@@ -27,25 +30,29 @@
           </div>
           <div class="ui-g-4 ui-sm-12 ui-fluid">
             <label>Bairro</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText name="bairro" ngModel #bairro="ngModel" required >
+            <app-message [control]="bairro" error="required" text="O bairro é obrigatório" ></app-message>
           </div>
           <div class="ui-g-4 ui-sm-12 ui-fluid">
             <label>CEP</label>
-            <p-inputMask [(ngModel)]="cepMask" mask="99.999-999"></p-inputMask>
+            <p-inputMask [(ngModel)]="cepMask" mask="99.999-999" ngModel #cep="ngModel" required></p-inputMask>
+            <app-message [control]="cep" error="required" text="O CEP é obrigatório" ></app-message>
           </div>
         </div>
         <div class="ui-g-12 ui-fluid">
           <div class="ui-g-6 ui-sm-12 ui-fluid">
             <label>Cidade</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText name="cidade" ngModel #cidade="ngModel" required>
+            <app-message [control]="cidade" error="required" text="A cidade é obrigatória" ></app-message>
           </div>
           <div class="ui-g-6 ui-sm-12 ui-fluid">
             <label>Estado</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText name="estado" ngModel #estado="ngModel" required>
+            <app-message [control]="estado" error="required" text="O estado é obrigatório" ></app-message>
           </div>
         </div>
         <div class="ui-g-12">
-          <p-button type="submit" label="Salvar" styleClass="ui-button-success" icon="fa fa-save"></p-button>
+          <p-button type="submit" label="Salvar" styleClass="ui-button-success" icon="fa fa-save" [disabled]="!pessoaForm.valid">Salvar</p-button>
           <p-button type="submit" label="Novo" styleClass="ui-button-info" icon="fa fa-plus-square-o" iconPos="left"></p-button>
           <p-button type="submit" label="Pesquisa" styleClass="ui-button-secondary" icon="fa fa-list" iconPos="left"></p-button>
         </div>
