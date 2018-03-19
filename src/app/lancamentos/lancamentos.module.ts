@@ -16,17 +16,18 @@ import { InputMaskModule } from 'primeng/components/inputmask/inputmask';
 import { GrowlModule } from 'primeng/components/growl/growl';
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import { MessageComponent } from '../message/message.component';
 
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+
 
     InputTextModule,
     ButtonModule,
@@ -39,6 +40,7 @@ import { InputTextModule } from 'primeng/components/inputtext/inputtext';
     SelectButtonModule,
     DropdownModule,
     CurrencyMaskModule,
+    SharedModule,
 
     GrowlModule
   ],

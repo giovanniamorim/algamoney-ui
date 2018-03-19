@@ -1,3 +1,6 @@
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { PessoasModule } from './pessoas/pessoas.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -18,24 +21,18 @@ import { GrowlModule } from 'primeng/components/growl/growl';
 
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { CampoColoridoDirective } from './campo-colorido.directive';
 
 import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animations/src/providers';
-import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
-import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
+import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
+import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadastro.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    PessoasPesquisaComponent,
-    PessoaCadastroComponent,
-    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,20 +40,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
 
     LancamentosModule,
-
-    InputTextModule,
-    ButtonModule,
-    DataTableModule,
-    TooltipModule,
-    InputTextareaModule,
-    CalendarModule,
-    SelectButtonModule,
-    DropdownModule,
-    InputMaskModule,
-    CurrencyMaskModule,
-    GrowlModule,
-    PaginatorModule,
-
+    PessoasModule,
+    CoreModule,
   ],
   providers: [
 
