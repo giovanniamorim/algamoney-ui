@@ -1,3 +1,4 @@
+import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,47 +18,45 @@ import { GrowlModule } from 'primeng/components/growl/growl';
 
 
 import { AppComponent } from './app.component';
-import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { CampoColoridoDirective } from './campo-colorido.directive';
-import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
+
 import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animations/src/providers';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { MessageComponent } from './message/message.component';
 import { FormsModule } from '@angular/forms';
-import { LancamentosGridComponent } from './lancamentos-grid/lancamentos-grid.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LancamentosPesquisaComponent,
     NavbarComponent,
     PessoasPesquisaComponent,
-    CampoColoridoDirective,
-    LancamentoCadastroComponent,
     PessoaCadastroComponent,
     MessageComponent,
-    LancamentosGridComponent,
   ],
   imports: [
     BrowserModule,
-    InputTextModule,
+    BrowserAnimationsModule,
     FormsModule,
+
+    LancamentosModule,
+
+    InputTextModule,
     ButtonModule,
     DataTableModule,
-    PaginatorModule,
     TooltipModule,
     InputTextareaModule,
     CalendarModule,
-    BrowserAnimationsModule,
     SelectButtonModule,
     DropdownModule,
-    CurrencyMaskModule,
     InputMaskModule,
-    GrowlModule
+    CurrencyMaskModule,
+    GrowlModule,
+    PaginatorModule,
+
   ],
   providers: [
 
