@@ -1,10 +1,14 @@
+import { LancamentoService } from './lancamentos/lancamento.service';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -24,9 +28,9 @@ import { AppComponent } from './app.component';
 import { CampoColoridoDirective } from './campo-colorido.directive';
 
 import { BROWSER_ANIMATIONS_PROVIDERS } from '@angular/platform-browser/animations/src/providers';
-import { FormsModule } from '@angular/forms';
 import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadastro.component';
+
 
 
 
@@ -38,13 +42,14 @@ import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadast
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpModule,
 
     LancamentosModule,
     PessoasModule,
     CoreModule,
   ],
   providers: [
-
+    LancamentoService
   ],
   bootstrap: [AppComponent]
 })
